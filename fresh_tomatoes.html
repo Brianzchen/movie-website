@@ -37,6 +37,9 @@
             background-color: #EEE;
             cursor: pointer;
         }
+        .synopsis {
+            margin: 10px;
+        }
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -57,6 +60,7 @@
             // Remove the src so the player itself gets removed, as this is the only
             // reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
+            $("#synopsis-text-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
@@ -68,6 +72,8 @@
               'src': sourceUrl,
               'frameborder': 0
             }));
+            var trailerSynopsisId = $(this).attr('data-trailer-synopsis-id')
+            $("#synopsis-text-container").append(trailerSynopsisId);
         });
         // Animate in the movies when the page loads
         $(document).ready(function () {
@@ -88,6 +94,9 @@
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
+          <div class="synopsis">
+            <p id="synopsis-text-container"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -104,24 +113,29 @@
     </div>
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KYz2wyBy3kc" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="Woody (Tom Hanks), a good-hearted cowboy doll who belongs to a young boy named Andy (John Morris), sees his position as Andy's favorite toy jeopardized when his parents buy him a Buzz Lightyear (Tim Allen) action figure. Even worse, the arrogant Buzz thinks he's a real spaceman on a mission to return to his home planet. When Andy's family moves to a new house, Woody and Buzz must escape the clutches of maladjusted neighbor Sid Phillips (Erik von Detten) and reunite with their boy." data-trailer-youtube-id="KYz2wyBy3kc" data-toggle="modal" data-target="#trailer">
     <img src="http://www.gstatic.com/tv/thumb/movieposters/17420/p17420_p_v7_ab.jpg" width="220" height="342">
     <h2>Toy Story</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="YWNWi-ZWL3c" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="Years after the collapse of civilization, the tyrannical Immortan Joe enslaves apocalypse survivors inside the desert fortress the Citadel. When the warrior Imperator Furiosa (Charlize Theron) leads the despot's five wives in a daring escape, she forges an alliance with Max Rockatansky (Tom Hardy), a loner and former captive. Fortified in the massive, armored truck the War Rig, they try to outrun the ruthless warlord and his henchmen in a deadly high-speed chase through the Wasteland." data-trailer-youtube-id="YWNWi-ZWL3c" data-toggle="modal" data-target="#trailer">
     <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcQuK41mExh1Qv3kbXoxohWYGlcstOQ6zEnnNdSI2BGIKywQwgRI" width="220" height="342">
     <h2>Mad Max</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="yRUAzGQ3nSY" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="Riley (Kaitlyn Dias) is a happy, hockey-loving 11-year-old Midwestern girl, but her world turns upside-down when she and her parents move to San Francisco. Riley's emotions -- led by Joy (Amy Poehler) -- try to guide her through this difficult, life-changing event. However, the stress of the move brings Sadness (Phyllis Smith) to the forefront. When Joy and Sadness are inadvertently swept into the far reaches of Riley's mind, the only emotions left in Headquarters are Anger, Fear and Disgust." data-trailer-youtube-id="yRUAzGQ3nSY" data-toggle="modal" data-target="#trailer">
     <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcTtZdvrahQxfjGkSBJCS-uiZKUfJNH4ddsqgCbV5oFkQiQ-tszE" width="220" height="342">
     <h2>Inside Out</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vak9ZLfhGnQ" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="A young Bruce Wayne (Christian Bale) travels to the Far East, where he's trained in the martial arts by Henri Ducard (Liam Neeson), a member of the mysterious League of Shadows. When Ducard reveals the League's true purpose -- the complete destruction of Gotham City -- Wayne returns to Gotham intent on cleaning up the city without resorting to murder. With the help of Alfred (Michael Caine), his loyal butler, and Lucius Fox (Morgan Freeman), a tech expert at Wayne Enterprises, Batman is born." data-trailer-youtube-id="vak9ZLfhGnQ" data-toggle="modal" data-target="#trailer">
     <img src="http://www.gstatic.com/tv/thumb/movieposters/35903/p35903_p_v7_ae.jpg" width="220" height="342">
     <h2>Batman Begins</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="In this sequel set eleven years after 'The Terminator', young John Connor (Edward Furlong), the key to civilization's victory over a future robot uprising, is the target of the shape-shifting T-1000 (Robert Patrick), a Terminator sent from the future to kill him. Another Terminator, the revamped T-800 (Arnold Schwarzenegger), has been sent back to protect the boy. As John and his mother (Linda Hamilton) go on the run with the T-800, the boy forms an unexpected bond with the robot." data-trailer-youtube-id="eajuMYNYtuY" data-toggle="modal" data-target="#trailer">
+    <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcS5J6Ay6y1UT7WAI4U7Zm2KDYITrvfOI3vmaCNdGhx_0jmWiI1d" width="220" height="342">
+    <h2>Terminator 2</h2>
 </div>
 
     </div>

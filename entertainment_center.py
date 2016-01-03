@@ -1,6 +1,7 @@
 import media
 import fresh_tomatoes
 
+# List of movies I enjoy
 toy_story = media.Movies("Toy Story",
                         "Woody (Tom Hanks), a good-hearted cowboy doll who "
                         "belongs to a young boy named Andy (John Morris), sees "
@@ -59,5 +60,21 @@ batman_begins = media.Movies("Batman Begins",
                              "http://www.gstatic.com/tv/thumb/movieposters/35903/p35903_p_v7_ae.jpg",
                              "https://www.youtube.com/watch?v=vak9ZLfhGnQ")
 
-movies = [toy_story, mad_max, inside_out, batman_begins]
+terminator_2 = media.Movies("Terminator 2",
+                            "In this sequel set eleven years after 'The "
+                            "Terminator', young John Connor (Edward Furlong), "
+                            "the key to civilization's victory over a future "
+                            "robot uprising, is the target of the shape-"
+                            "shifting T-1000 (Robert Patrick), a Terminator "
+                            "sent from the future to kill him. Another "
+                            "Terminator, the revamped T-800 (Arnold "
+                            "Schwarzenegger), has been sent back to protect the"
+                            " boy. As John and his mother (Linda Hamilton) go "
+                            "on the run with the T-800, the boy forms an "
+                            "unexpected bond with the robot.",
+                            "http://t1.gstatic.com/images?q=tbn:ANd9GcS5J6Ay6y1UT7WAI4U7Zm2KDYITrvfOI3vmaCNdGhx_0jmWiI1d",
+                            "https://www.youtube.com/watch?v=eajuMYNYtuY")
+
+# Appends movies to an array which are then called by the fresh tomatoes program
+movies = [toy_story, mad_max, inside_out, batman_begins, terminator_2]
 fresh_tomatoes.open_movies_page(movies)

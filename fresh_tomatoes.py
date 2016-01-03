@@ -43,6 +43,9 @@ main_page_head = '''
             background-color: #EEE;
             cursor: pointer;
         }
+        .synopsis {
+            margin: 10px;
+        }
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -63,6 +66,7 @@ main_page_head = '''
             // Remove the src so the player itself gets removed, as this is the only
             // reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
+            $("#synopsis-text-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
@@ -74,6 +78,9 @@ main_page_head = '''
               'src': sourceUrl,
               'frameborder': 0
             }));
+            // Loads the synopsis for the movie that is clicked
+            var trailerSynopsisId = $(this).attr('data-trailer-synopsis-id')
+            $("#synopsis-text-container").append(trailerSynopsisId);
         });
         // Animate in the movies when the page loads
         $(document).ready(function () {
@@ -97,6 +104,9 @@ main_page_content = '''
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
+          </div>
+          <div class="synopsis">
+            <p id="synopsis-text-container"></p>
           </div>
         </div>
       </div>
@@ -122,7 +132,7 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-synopsis-id="{movie_synopsis}" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
 </div>
@@ -145,7 +155,8 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            movie_synopsis=movie.storyline
         )
     return content
 
